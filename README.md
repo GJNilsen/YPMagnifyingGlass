@@ -4,7 +4,14 @@ YPMagnifyingGlass is Swift port of [ACMagnifyingGlass](https://github.com/acooma
 
 ## Usage
 
-Select the view you want to magnify, and embed it in another view. Set the views class to `YPMagnifyingGlass`, and connect it to an `IBOutlet` property in your `UIViewController` (or whatever else).
+Select the view you want to magnify, and embed it in another view. Set the views class to `YPMagnifyingGlass`, and connect it to an `IBOutlet` property in your `UIViewController` (or whatever else). In this example you call the connected view `magnifyingView`.
+
+Then in your code, add
+```
+var mag = YPMagnifyingGlass(frame:CGRectMake(magnifyingView.frame.origin.x, magnifyingView.frame.origin.y,100,100))
+mag.scale = 2
+self.magnifyingView.magnifyingGlass = mag
+```
 
 ## Installation
 
