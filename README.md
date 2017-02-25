@@ -23,7 +23,7 @@ Geert-Jan Nilsen ( gert@yuppielabel.com )
 [Yuppielabel](http://yuppielabel.com)
 
 ## Contributor
-Matt Long (https://github.com/perlmunger)
+[Matt Long](https://github.com/perlmunger)
 
 ## Thanks
 
