@@ -22,6 +22,9 @@ Add _YPMagnifyingGlass.swift_ and _YPMagnifyingView.swift_ to your project
 Geert-Jan Nilsen ( gert@yuppielabel.com )
 [Yuppielabel](http://yuppielabel.com)
 
+## Contributor
+Matt Long (https://github.com/perlmunger)
+
 ## Thanks
 
 Thanks a lot to [Arnaud Coomans](http://acoomans.com) for writing the original class this was ported from, [ACMagnificationGlass](https://github.com/acoomans/iOS-MagnifyingGlass). He has kindly granted me to share it with all of you.
