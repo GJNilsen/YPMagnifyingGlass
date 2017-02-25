@@ -14,7 +14,7 @@ public class YPMagnifyingGlass: UIView {
   public var viewToMagnify: UIView!
   public var touchPoint: CGPoint! {
     didSet {
-      self.center = CGPointMake(touchPoint.x + touchPointOffset.x, touchPoint.y + touchPointOffset.y)
+        self.center = CGPoint(x: touchPoint.x + touchPointOffset.x, y: touchPoint.y + touchPointOffset.y)
     }
   }
   
@@ -36,18 +36,18 @@ public class YPMagnifyingGlass: UIView {
   
   }
 
-  required public init(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+  required public convenience init(coder aDecoder: NSCoder) {
+    self.init(coder: aDecoder)
   }
   
   required public override init(frame: CGRect) {
     super.init(frame: frame)
     
-    self.layer.borderColor = UIColor.lightGrayColor().CGColor
+    self.layer.borderColor = UIColor.lightGray.cgColor
     self.layer.borderWidth = 3
     self.layer.cornerRadius = frame.size.width / 2
     self.layer.masksToBounds = true
-    self.touchPointOffset = CGPointMake(0, YPMagnifyingGlassDefaultOffset)
+    self.touchPointOffset = CGPoint(x: 0, y: YPMagnifyingGlassDefaultOffset)
     self.scale = YPMagnifyingGlassDefaultScale
     self.viewToMagnify = nil
     self.scaleAtTouchPoint = true
@@ -58,11 +58,11 @@ public class YPMagnifyingGlass: UIView {
     self.layer.cornerRadius = frame.size.width / 2
   }
   
-  public override func drawRect(rect: CGRect) {
-    var context: CGContextRef = UIGraphicsGetCurrentContext()
-    CGContextTranslateCTM(context, self.frame.size.width/2, self.frame.size.height/2)
-    CGContextScaleCTM(context, self.scale, self.scale)
-    CGContextTranslateCTM(context, -self.touchPoint.x, -self.touchPoint.y + (self.scaleAtTouchPoint != nil ? 0 : self.bounds.size.height/2))
-    self.viewToMagnify.layer.renderInContext(context)
+  public override func draw(_ rect: CGRect) {
+    let context = UIGraphicsGetCurrentContext()!
+    context.translateBy(x: self.frame.size.width/2, y: self.frame.size.height/2)
+    context.scaleBy(x: self.scale, y: self.scale)
+    context.translateBy(x: -self.touchPoint.x, y: -self.touchPoint.y + (self.scaleAtTouchPoint != nil ? 0 : self.bounds.size.height/2))
+    self.viewToMagnify.layer.render(in: context)
   }
 }
