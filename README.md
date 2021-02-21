@@ -2,6 +2,9 @@
 
 YPMagnifyingGlass is Swift port of [ACMagnifyingGlass](https://github.com/acoomans/iOS-MagnifyingGlass), a magnifier like the one in the iOS _notes_ app.
 
+## Warning:
+This code is not maintained and unsupported. It doesnt work on modern iOS/iPad OS versions.
+
 ## Usage
 
 Select the view you want to magnify, and embed it in another view. Set the views class to `YPMagnifyingGlass`, and connect it to an `IBOutlet` property in your `UIViewController` (or whatever else). In this example you call the connected view `magnifyingView`.
